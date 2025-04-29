@@ -1,0 +1,22 @@
+***DIFFERENTIAL AMPLIFIER***
+VDD 7 0 dc 2V
+VB 6 0 dc 0.5V
+VIN1 4 0 dc 1V
+VIN2 5 0 dc 1V
+
+.model nmod nmos level=54 version=4.7
+M1 2 4 1 1 nmod w=5u l=0.1u
+M2 3 5 1 1 nmod w=5u l=0.1u
+M3 1 6 0 0 nmod w=5u l=0.1u
+
+.model pmod pmos level=54 version=4.7
+M4 2 2 7 7 pmod w=5u l=0.1u
+M5 3 2 7 7 pmod w=5u l=0.1u
+
+.tran 0.1 80
+.control
+run
+plot V(2) 
+plot V(3)  
+.endc
+.end
